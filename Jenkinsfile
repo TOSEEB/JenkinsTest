@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TOSEEB/JenkinsTest.git'  // Apne repo ka URL replace karein
+                git branch: 'main', url: 'https://github.com/TOSEEB/JenkinsTest.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Run Application') {
             steps {
-                sh 'node index.js'
+                bat 'node index.js'
             }
         }
     }
